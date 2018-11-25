@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `role`
+--
+
+CREATE TABLE `role` (
+  `IdRole` int(11) NOT NULL,
+  `NameRole` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Cấu trúc bảng cho bảng `account`
 --
@@ -47,16 +58,6 @@ CREATE TABLE `product` (
   `Image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `role`
---
-
-CREATE TABLE `role` (
-  `IdRole` int(11) NOT NULL,
-  `NameRole` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Đang đổ dữ liệu cho bảng `role`

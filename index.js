@@ -2,8 +2,9 @@ var express = require('express');
 
 var con = require('./dbconnect');
 var role = require('./route/role');
-// var account = require('./route/account');
+var account = require('./route/account');
 // var product = require('./route/product');
+// var loai = require('./route/loai');
 // var slide = require('./route/slide');
 
 var app = express();
@@ -14,8 +15,9 @@ app.use(bodyParser.json());
 app.use(urlencodedParser);
 
 app.use("/api/role", role);
-// app.use("/api/account", account);
+app.use("/api/account", account);
 // app.use("/api/product", product);
+// app.use("/api/loai", loai);
 // app.use("/api/slide", slide);
 
 con.connect(function(err) {
