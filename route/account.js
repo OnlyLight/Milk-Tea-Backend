@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 var con = require('../dbconnect');
-var controller = require('../controller/role');
+var controller = require('../controller/account');
 
 router.get('/list', controller.list);
 router.get('/list/:id', controller.listByID);
-router.post('/create', controller.createRole);
-router.patch('/update/:id', controller.updateRole);
-router.delete('/delete/:id', controller.deleteRole);
+router.post('/create', controller.create);
+router.patch('/update/:id', controller.update);
+router.delete('/delete/:id', controller.delete);
 
 module.exports = router;

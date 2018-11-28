@@ -10,42 +10,42 @@ module.exports.list = function (req, res) {
 
 module.exports.listByID = function (req, res) {
 	var id = req.params.id;
-	var sql = "SELECT * FROM account WHERE IdAccount = "+id+"";
+	var sql = "SELECT * FROM account WHERE Id = "+id+"";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
 		res.json(results);
 	});
 };
 
-module.exports.createRole = function (req, res) {
+module.exports.create = function (req, res) {
 	var name = req.body.nameAccount;
+	var idRole = req.body.idRole;
 	var sdt = req.body.sdt;
 	var diaChi = req.body.diaChi;
-	var idRole = req.body.idRole;
-	var sql = "INSERT INTO account (Ten, Sdt, DiaChi, IdRole) VALUES ('"+name+"', '"+sdt+"', '"+diaChi+"', "+idRole+")";
+	console.log("Hello");
+	var sql = "INSERT INTO account (Name, IdRole, Sdt, DiaChi) VALUES ('"+name+"', "+idRole+", '"+sdt+"', '"+diaChi+"')";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
 		res.json({'message': 'Create Success !!'});
 	});
 };
 
-// Update continue
-module.exports.updateRole = function (req, res) {
+module.exports.update = function (req, res) {
 	var id = req.params.id;
 	var name = req.body.nameAccount;
+	var idRole = req.body.idRole;
 	var sdt = req.body.sdt;
 	var diaChi = req.body.diaChi;
-	var idRole = req.body.idRole;
-	var sql = "UPDATE account SET Ten = '"+name+"', Sdt = '"+sdt+"', DiaChi = '"+diaChi+"', IdRole = "+id+" WHERE IdAccount = "+id+"";
+	var sql = "UPDATE account SET Name = '"+name+"', IdRole = "+idRole+", Sdt = '"+sdt+"', DiaChi = '"+diaChi+"' WHERE Id = "+id+"";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
 		res.json({'message': 'Update Success !!'});
 	});
 };
 
-module.exports.deleteRole = function (req, res) {
+module.exports.delete = function (req, res) {
 	var id = req.params.id;
-	var sql = "DELETE FROM role WHERE IdAccount = "+id+"";
+	var sql = "DELETE FROM account WHERE Id = "+id+"";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
 		res.json({'message': 'Delete Success !!'});
