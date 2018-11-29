@@ -22,7 +22,6 @@ module.exports.create = function (req, res) {
 	var idRole = req.body.idRole;
 	var sdt = req.body.sdt;
 	var diaChi = req.body.diaChi;
-	console.log("Hello");
 	var sql = "INSERT INTO account (Name, IdRole, Sdt, DiaChi) VALUES ('"+name+"', "+idRole+", '"+sdt+"', '"+diaChi+"')";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
