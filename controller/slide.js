@@ -18,12 +18,10 @@ module.exports.listByID = function (req, res) {
 };
 
 module.exports.create = function (req, res) {
-	var id = req.params.id;
-	// var ava = req.file.path.split('/').join('//')
-	var image = req.file.path.split('/').join('//');
+	var image = req.file.path;
 	var sql = "INSERT INTO slide (Image) VALUES ('"+image+"')";
 	con.query(sql, function(err, results) {
 		if (err) throw err;
-		res.json({'message': 'Create Success !!'});
+		res.json({'message': 'Insert Success !!'});
 	});
 };
