@@ -7,6 +7,7 @@ var validate = require('../validate/role.validate');
 
 router.get('/list', controller.list);
 router.get('/list/:id', controller.listByID);
+
 router.post('/create', validate.validateName, controller.createRole);
 router.patch('/update/:id', validate.validateName, controller.updateRole);
 router.delete('/delete/:id', controller.deleteRole);
